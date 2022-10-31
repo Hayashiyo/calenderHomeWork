@@ -56,9 +56,10 @@
         }
         .head{color: gray;font-style: italic;}
         td:hover{background-color: gray;}
-        td:nth-child(6) { color: red; }
+        td:nth-child(1) { color: red; }
         td:nth-child(7) { color: red; }
         span{font-family: 'Courier New', Courier, monospace;font-size: xx-large;}
+        
     </style>
 </head>
 
@@ -97,14 +98,14 @@
     $MandSP=($monthDays + $spaceDays);
 
     for ($i = 0; $i < $spaceDays; $i++) {
-        $cal[] = ''; //陣列放入=>空隔日-1
+        $cal[] = ''; //陣列放入=>START空隔日
     }
 
     for ($i = 0; $i < $monthDays; $i++) {
         $cal[] = date("Y-m-d", strtotime("+$i days", strtotime($firstDay))); //陣列放入=>月中日數
     }
     for ($i = 0; $i <($weeks*7)-$MandSP; $i++) {
-        $cal[] = ''; //陣列放入=>空隔日-1
+        $cal[] = ''; //陣列放入=>END空隔日
     }
     // print_r($cal)
 
@@ -121,10 +122,10 @@ echo "</pre>"; */
     ?>
 
     <div class="change">
-        <a href="?y=<?= $year; ?>&m=<?= $prevMonth; ?>"><i class="fa-solid fa-angles-left"></i></a>
+        <a href="?y=<?= $year; ?>&m=<?= $prevMonth; ?>"><i class="fa-solid fa-angles-left">prev</i></a>
         <!-- y代入$year & m代入$prevMonth-->
         <h1 class="head"><?= $year; ?> 年 <?= $month; ?> 月份</h1>
-        <a href="?y=<?= $year; ?>&m=<?= $nextMonth; ?>"><i class="fa-solid fa-angles-right"></i></a>
+        <a href="?y=<?= $year; ?>&m=<?= $nextMonth; ?>"><i class="fa-solid fa-angles-right">next</i></a>
     </div>
     <br>
     <br>
